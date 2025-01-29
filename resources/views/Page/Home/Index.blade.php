@@ -18,7 +18,7 @@
     <div class="flex bg-blue-500">
         <div class="flex flex-col-reverse h-full w-full xl:flex-row">
             <div class="bg-gray-800 text-white p-8 xl:w-1/2 flex flex-col">
-                <span class="font-bold text-4xl">SEWA LAPANGAN OLARAGA</span>
+                <span class="font-bold text-4xl">SEWA LAPANGAN FUTSAL</span>
                 <div class="h-[2px] w-full bg-white my-3"></div>
                 <p class="text-2xl font-semibold text-start">
                    Selamat datang di tempat penyewaan lapangan kami, tempat di mana semangat olahraga dan kebersamaan bersatu! Kami dengan bangga mempersembahkan fasilitas terbaik untuk memenuhi kebutuhan kegiatan olahraga dan rekreasi Anda.
@@ -27,12 +27,12 @@
                 <div class="flex mt-10">
                     <a href="#shop"
                         class="p-4 border-[2px] border-white hover:bg-white duration-300 transition-all hover:text-black font-semibold">Sewa
-                        Room Sekarang</a>
+                        Lapangan Sekarang</a>
                 </div>
             </div>
             <div class="h-full xl:w-1/2">
                 <img class="h-full w-full"
-                    src="https://www.panditfootball.com/content/uploads/2014/05/ball_football_grass_lawn_gate_field_11367_1920x1200.jpg"
+                    src="https://superlive.id/storage/articles/aeae881e-e955-46c7-9b85-9823f5b56a7a.jpg"
                     alt="">
             </div>
         </div>
@@ -47,10 +47,10 @@
             <div class="h-[2px] bg-white w-full my-5"></div>
             <div class="flex gap-3 justify-center">
                 @foreach ($lapangan as $item)
-                    <div
+                <div
                         class="w-[400px] bg-gray-800 border border-gray-400 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <a class="" href="{{ route('lapangan.detail', ['uuid' => $item->uuid]) }}">
-                            <img class="rounded-t-lg object-cover h-[220px] w-full bg-black" src="{{ $item->imagedir }}"
+                            <img class="rounded-t-lg object-cover h-[220px] w-full bg-black" src="{{$item->imagedir }}"
                                 alt="" />
                         </a>
                         <div class="p-5">

@@ -25,12 +25,12 @@
     <div class="">
         <table class="bg-white w-full text-black">
            <thead class="w-full h-[40px] bg-gray-800 text-white">
-                <tr class="w-full"> 
+                <tr class="w-full">
                     <th class="w-[50px]">No.</th>
                     <th class="w-[200px]">Image Pembayaran</th>
                     <th>Kode Boking</th>
                     <th>Nama User</th>
-                    <th>Nama Room</th>
+                    <th>Nama Lapangan</th>
                     <th>Tanggal Sewa</th>
                     <th>Waktu Sewa</th>
                     <th>Status pembayaran</th>
@@ -48,13 +48,13 @@
                                 <a href="{{$item->imagedir}}" target="_blank">
                                 <img src="{{$item->imagedir}}" class="bg-gray-200 rounded-md h-[100px] w-[150px]" alt="foto">
                                 </a>
-                            
+
                             @else
                                 <span class="font-semibold text-lg">
                                     Belum Bayar
                                 </span>
                             @endif
-                        </td>                        
+                        </td>
                         <td>{{$item->kode_boking}}</td>
                         <td>{{$item->User->name}}</td>
                         <td>{{$item->Lapangan->name }}</td>
@@ -63,10 +63,10 @@
                         <td>{{strtoupper($item->status_pembayaran)}}</td>
                         <td>{{strtoupper($item->status_sewa)}}</td>
                         <td class="">
-                            <a href="{{route('admin.pemesanan.detail',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-purple-600 rounded-lg font-semibold transition-all duration-300 active:scale-95">Detail</a> 
+                            <a href="{{route('admin.pemesanan.detail',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-purple-600 rounded-lg font-semibold transition-all duration-300 active:scale-95">Detail</a>
                             @if ($item->status_pembayaran == 'process' && $item->image_pembayaran != null)
-                                <a href="{{route('admin.pemesanan.terima',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-green-600 rounded-lg font-semibold transition-all duration-300 active:scale-95">Terima</a> 
-                                <a  href="{{route('user.delete',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-red-600 rounded-lg font-semibold transition-all duration-300 active:scale-95 cursor-pointer">Tolak</a>
+                                <a href="{{route('admin.pemesanan.terima',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-green-600 rounded-lg font-semibold transition-all duration-300 active:scale-95">Terima</a>
+                                <a  href="{{route('admin.pemesanan.tolak',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-red-600 rounded-lg font-semibold transition-all duration-300 active:scale-95 cursor-pointer">Tolak</a>
                             @endif
                             @if($item->status_pembayaran == 'lunas' && $item->status_sewa == 'pending')
                                 <a  href="{{route('admin.pemesanan.masuk',['uuid' => $item->uuid])}}" class="px-4 py-2 text-white bg-green-600 rounded-lg font-semibold transition-all duration-300 active:scale-95 cursor-pointer">Masuk</a>
@@ -77,7 +77,7 @@
                         </td>
                     </tr>
                 @endforeach
-            @else   
+            @else
                 <tr  class="bg-gray-200 h-[50px]">
                     <th colspan="10" class="text-start text-black px-2">Data Not Found</th>
                 </tr>

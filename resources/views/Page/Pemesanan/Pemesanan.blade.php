@@ -25,7 +25,7 @@
                                     {{strtoupper($item->status_sewa)}}
                             </span>
                         </span>
-                        <span class="mb-3 text-black  dark:text-gray-400">Image Pembayaran :   {{$item->waktu_sewa_mulai}} s/d {{$item->waktu_sewa_selesai}}</span>
+                        {{-- <span class="mb-3 text-black  dark:text-gray-400">Image Pembayaran :   {{$item->waktu_sewa_mulai}} s/d {{$item->waktu_sewa_selesai}}</span> --}}
                         <div class="h-[2px] bg-black mb-3"></div>
                         <div class="flex w-full gap-x-1">
                             @if ($item->status_pembayaran == 'pending')

@@ -29,7 +29,7 @@ use App\Http\Controllers\PemesananController;
 
 
     Route::prefix('room')->group(function(){
-       Route::get('{uuid}/detail', [LapanganController::class, 'LapanganDetail'])->name('lapangan.detail'); 
+       Route::get('{uuid}/detail', [LapanganController::class, 'LapanganDetail'])->name('lapangan.detail');
        Route::get('{uuid}/sewa', [SewaController::class, 'SewaCreate'])->middleware('auth')->name('lapangan.sewa.create');
        Route::post('{uuid}/sewa/store', [SewaController::class, 'SewaStore'])->name('lapangan.sewa.store');
     });
@@ -39,7 +39,7 @@ use App\Http\Controllers\PemesananController;
         Route::get('/login', [AuthController::class, 'viewLogin'])->name('login.view')->middleware('guest');
         Route::get('/register', [AuthController::class, 'viewRegister'])->name('register.view')->middleware('guest');
     });
-    
+
     Route::prefix('auth')->middleware('guest:web')->group(function(){
         Route::post('/login', [AuthController::class, 'login'])->name('login.store');
         Route::post('/register', [AuthController::class, 'register'])->name('register.store');
@@ -51,7 +51,7 @@ use App\Http\Controllers\PemesananController;
         Route::post('{uuid}/bayar', [PemesananController::class, 'BayarStore'])->name('pemesanan.bayar.store');
     });
 
-    
+
     Route::prefix('admin')->middleware('role:admin')->group(function(){
         Route::get('/dashboard', function(){
             $user = User::count();
@@ -84,11 +84,12 @@ use App\Http\Controllers\PemesananController;
             Route::get('{uuid}/detail',[PemesananController::class, 'DetailPemesanan'])->name('admin.pemesanan.detail');
             Route::post('/search',[PemesananController::class, 'search'])->name('admin.pemesanan.search');
             Route::get('{uuid}/terima',[PemesananController::class, 'TerimaPembayaran'])->name('admin.pemesanan.terima');
+            Route::get('{uuid}/tolak',[PemesananController::class, 'TolakPembayaran'])->name('admin.pemesanan.tolak');
             Route::get('{uuid}/masuk',[PemesananController::class, 'SewaMasuk'])->name('admin.pemesanan.masuk');
             Route::get('{uuid}/selesai',[PemesananController::class, 'SewaSelesai'])->name('admin.pemesanan.selesai');
         });
     });
 
-    
+
 
 
